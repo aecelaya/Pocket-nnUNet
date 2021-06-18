@@ -821,6 +821,3 @@ if __name__ == '__main__':
 
 
     print(SegmentationNetwork._compute_steps_for_sliding_window((123, 54, 123), (246, 162, 369), 0.25))
-
-
-

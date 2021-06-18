@@ -26,7 +26,7 @@ from torch.backends import cudnn
 
 
 class ResidualUNetEncoder(nn.Module):
-    def __init__(self, input_channels, base_num_features, num_blocks_per_stage, feat_map_mul_on_downscale,
+    def __init__(self, input_channels, base_num_features, num_blocks_per_stage, feat_map_mul_on_downscale=1,
                  pool_op_kernel_sizes, conv_kernel_sizes, props, default_return_skips=True,
                  max_num_features=480, block=BasicResidualBlock):
         """
@@ -506,4 +506,3 @@ def find_2d_configuration():
 
 if __name__ == "__main__":
     pass
-

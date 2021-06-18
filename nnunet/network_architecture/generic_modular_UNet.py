@@ -23,7 +23,7 @@ import numpy as np
 from torch.optim import SGD
 
 """
-The idea behind this modular U-net ist that we decouple encoder and decoder and thus make things a) a lot more easy to 
+The idea behind this modular U-net ist that we decouple encoder and decoder and thus make things a) a lot more easy to
 combine and b) enable easy swapping between segmentation or classification mode of the same architecture
 """
 
@@ -80,7 +80,7 @@ def get_default_network_config(dim=2, dropout_p=None, nonlin="LeakyReLU", norm_t
 
 
 class PlainConvUNetEncoder(nn.Module):
-    def __init__(self, input_channels, base_num_features, num_blocks_per_stage, feat_map_mul_on_downscale,
+    def __init__(self, input_channels, base_num_features, num_blocks_per_stage, feat_map_mul_on_downscale=1,
                  pool_op_kernel_sizes, conv_kernel_sizes, props, default_return_skips=True,
                  max_num_features=480):
         """
@@ -319,7 +319,7 @@ class PlainConvUNet(SegmentationNetwork):
     use_this_for_batch_size_computation_2D = 1167982592.0
     use_this_for_batch_size_computation_3D = 1152286720.0
 
-    def __init__(self, input_channels, base_num_features, num_blocks_per_stage_encoder, feat_map_mul_on_downscale,
+    def __init__(self, input_channels, base_num_features, num_blocks_per_stage_encoder, feat_map_mul_on_downscale=1,
                  pool_op_kernel_sizes, conv_kernel_sizes, props, num_classes, num_blocks_per_stage_decoder,
                  deep_supervision=False, upscale_logits=False, max_features=512, initializer=None):
         super(PlainConvUNet, self).__init__()

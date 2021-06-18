@@ -182,7 +182,7 @@ class Generic_UNet(SegmentationNetwork):
     use_this_for_batch_size_computation_3D = 520000000  # 505789440
 
     def __init__(self, input_channels, base_num_features, num_classes, num_pool, num_conv_per_stage=2,
-                 feat_map_mul_on_downscale=2, conv_op=nn.Conv2d,
+                 feat_map_mul_on_downscale=1, conv_op=nn.Conv2d,
                  norm_op=nn.BatchNorm2d, norm_op_kwargs=None,
                  dropout_op=nn.Dropout2d, dropout_op_kwargs=None,
                  nonlin=nn.LeakyReLU, nonlin_kwargs=None, deep_supervision=True, dropout_in_localization=False,
